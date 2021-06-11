@@ -1,0 +1,16 @@
+<div class="container mx-auto min-h-screen pt-2 my-32 w-full p-10 xs:p-0 mx-auto md:w-full max-w-3xl items-center">
+    <button id='authorize_button' style='display: none' class="mx-auto mb-8 transition duration-200 bg-green-500 hover:bg-green-600 focus:bg-green-700 focus:shadow-sm focus:ring-4 focus:ring-green-500 focus:ring-opacity-50 text-white md:w-1/3 py-2.5 rounded-lg text-sm shadow-sm hover:shadow-md font-semibold text-center inline-block">
+        <span class="inline-flex items-center justify-center h-12 w-12 text-lg text-white"><i class="bx bx-log-in-circle"></i></span>
+        <span class="text-sm font-medium">Login</span>
+    </button>
+    <button id='signout_button' style='display: none' class="mx-auto mb-8 transition duration-200 bg-green-500 hover:bg-green-600 focus:bg-green-700 focus:shadow-sm focus:ring-4 focus:ring-green-500 focus:ring-opacity-50 text-white md:w-1/3 py-2.5 rounded-lg text-sm shadow-sm hover:shadow-md font-semibold text-center inline-block">
+        <span class="inline-flex items-center justify-center h-12 w-12 text-lg text-white"><i class="bx bx-log-in-circle"></i></span>
+        <span class="text-sm font-medium">Logout</span>
+    </button>
+    <pre id="content" style="white-space: pre-wrap;"></pre>
+    <script src="javascripts/login.js"></script>
+    <script async defer src="https://apis.google.com/js/api.js"
+            onload="this.onload=function(){};handleClientLoad()"
+            onreadystatechange="if (this.readyState === 'complete') this.onload()">
+    </script>
+</div>

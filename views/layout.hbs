@@ -1,0 +1,108 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>LDM</title>
+    <link href="/css/tailwind.css" rel="stylesheet">
+    <link rel="shortcut icon" type="image/x-icon" href="/img/favicon.ico" />
+</head>
+<body class="bg-purple-800">
+{{#if user}}
+    <link rel="stylesheet" href="https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css" />
+    <div class="min-h-screen flex flex-row bg-purple-800">
+        <div class="flex flex-col w-56 bg-white rounded-r-3xl overflow-hidden">
+            <div class="flex items-center justify-center h-20 shadow-md">
+                <h1 class="inline-flex items-center text-3xl uppercase text-indigo-500"><img src="/img/ldm_logo.jpg" class="md:w-20"></h1>
+            </div>
+            <ul class="flex flex-col py-4">
+                <li>
+                    <a href="/" class="flex flex-row items-center h-12 transform hover:translate-x-2 transition-transform ease-in duration-200 text-gray-500 hover:text-gray-800">
+                        <span class="inline-flex items-center justify-center h-12 w-12 text-lg text-black"><i class="bx bx-home"></i></span>
+                        <span class="text-sm font-medium">Dashboard</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="/record" class="flex flex-row items-center h-12 transform hover:translate-x-2 transition-transform ease-in duration-200 text-gray-500 hover:text-gray-800">
+                        <span class="inline-flex items-center justify-center h-12 w-12"><img src="/img/baby.png" class="md:w-5"></span>
+                        <span class="text-sm font-medium">Baby</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="/add/baby" class="flex flex-row items-center h-12 transform hover:translate-x-2 transition-transform ease-in duration-200 text-gray-500 hover:text-gray-800">
+                        <span class="inline-flex items-center justify-center h-12 w-12"><img src="/img/add baby.png" class="md:w-6"></span>
+                        <span class="text-sm font-medium">Add Baby</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="/study" class="flex flex-row items-center h-12 transform hover:translate-x-2 transition-transform ease-in duration-200 text-gray-500 hover:text-gray-800">
+                        <span class="inline-flex items-center justify-center h-12 w-12 text-lg text-black"><i class="bx bx-book"></i></span>
+                        <span class="text-sm font-medium">Study</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="/add/study" class="flex flex-row items-center h-12 transform hover:translate-x-2 transition-transform ease-in duration-200 text-gray-500 hover:text-gray-800">
+                        <span class="inline-flex items-center justify-center h-12 w-12 text-lg text-black"><i class="bx bx-book-add"></i></span>
+                        <span class="text-sm font-medium">Add Study</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="flex flex-row items-center h-12 transform hover:translate-x-2 transition-transform ease-in duration-200 text-gray-500 hover:text-gray-800">
+                        <span class="inline-flex items-center justify-center h-12 w-12 text-lg text-black"><i class="bx bx-user"></i></span>
+                        <span class="text-sm font-medium">Users</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="flex flex-row items-center h-12 transform hover:translate-x-2 transition-transform ease-in duration-200 text-gray-500 hover:text-gray-800">
+                        <span class="inline-flex items-center justify-center h-12 w-12 text-lg text-black"><i class="bx bx-bell"></i></span>
+                        <span class="text-sm font-medium">Notifications</span>
+                        <span class="ml-auto mr-6 text-sm bg-red-100 rounded-full px-3 py-px text-red-500">5</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="flex flex-row items-center h-12 transform hover:translate-x-2 transition-transform ease-in duration-200 text-gray-500 hover:text-gray-800">
+                        <span class="inline-flex items-center justify-center h-12 w-12 text-lg text-black"><i class="bx bx-log-out"></i></span>
+                        <span class="text-sm font-medium">Logout</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="/gmail" class="flex flex-row items-center h-12 transform hover:translate-x-2 transition-transform ease-in duration-200 text-gray-500 hover:text-gray-800">
+                        <span class="inline-flex items-center justify-center h-12 w-12 text-lg text-black"><i class="bx bxl-google"></i></span>
+                        <span class="text-sm font-medium">Gmail</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+        {{{ body }}}
+    </div>
+{{else}}
+    <div class="flex justify-center mt-40 items-center">
+        <div class>
+            <img src="/img/ldm_logo.jpg" class="rounded-full h-44 w-44 mr-10">
+        </div>
+        <div class="text-white text-6xl">
+            <p>LDM Database</p>
+        </div>
+    </div>
+    <br>
+    <div class="min-h-screen justify-center sm:py-12">
+        <div class="bg-white shadow w-full rounded-lg p-10 xs:p-0 mx-auto md:w-full md:max-w-md items-center">
+            {{#if message}}
+                <div class="bg-red-600 text-white rounded-lg text-center p-2">{{ message }}</div>
+            {{/if}}
+            <form method="POST" action="/login">
+                <div class="px-5 py-7">
+                    <label class="font-semibold text-sm text-gray-600 pb-1 block">Username</label>
+                    <input name="username" type="text" class="border rounded-lg px-3 py-2 mt-1 mb-5 text-sm w-full" />
+                    <label class="font-semibold text-sm text-gray-600 pb-1 block">Password</label>
+                    <input name="password" type="password" class="border rounded-lg px-3 py-2 mt-1 mb-5 text-sm w-full" />
+                    <button type="submit" class="transition duration-200 bg-blue-500 hover:bg-blue-600 focus:bg-blue-700 focus:shadow-sm focus:ring-4 focus:ring-blue-500 focus:ring-opacity-50 text-white w-full py-2.5 rounded-lg text-sm shadow-sm hover:shadow-md font-semibold text-center inline-block">
+                        <span class="inline-block mr-2">Login</span>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+{{/if}}
+</body>
+</html>
